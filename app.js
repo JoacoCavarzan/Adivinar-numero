@@ -42,12 +42,17 @@ function generarNumeroSecreto() {
 
   console.log(numeroGenerado);
   console.log(listaNumerosSorteados);
-  // Si el num generado está incluido en la lista
-  if (listaNumerosSorteados.includes(numeroGenerado)) {
-    return generarNumeroSecreto();
+
+  if (listaNumerosSorteados.length == numeroMaximo) {
+    asignarTextoElemento("p", "Ya se sortearon todos los números posibles");
   } else {
-    listaNumerosSorteados.push(numeroGenerado);
-    return numeroGenerado;
+    // Si el num generado está incluido en la lista
+    if (listaNumerosSorteados.includes(numeroGenerado)) {
+      return generarNumeroSecreto();
+    } else {
+      listaNumerosSorteados.push(numeroGenerado);
+      return numeroGenerado;
+    }
   }
 }
 
